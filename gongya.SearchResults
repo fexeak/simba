@@ -1,0 +1,232 @@
+---- PIN_OUTPUT Matches (56 in 31 files) ----
+Dht.c (src\drivers\sensors):187
+    pin_device_set_mode(self_p->pin_p, PIN_OUTPUT);
+    pin_device_write_high(self_p->pin_p);
+
+Dht.c (src\drivers\sensors):212
+    pin_device_set_mode(self_p->pin_p, PIN_OUTPUT);
+    pin_device_write_high(self_p->pin_p);
+
+Hx711.c (src\drivers\sensors):129
+    pin_device_set_mode(self_p->pd_sck_p, PIN_OUTPUT);
+    pin_device_write_low(self_p->pd_sck_p);
+
+I2c_soft.c (src\drivers\network):75
+    pin_device_set_mode(self_p->sda_p, PIN_OUTPUT);
+    time_busy_wait_us(self_p->baudrate_us);
+
+I2c_soft.c (src\drivers\network):79
+    pin_device_set_mode(self_p->scl_p, PIN_OUTPUT);
+
+    return (0);
+I2c_soft.c (src\drivers\network):93
+    pin_device_set_mode(self_p->sda_p, PIN_OUTPUT);
+    time_busy_wait_us(self_p->baudrate_us);
+
+I2c_soft.c (src\drivers\network):133
+        pin_device_set_mode(self_p->sda_p, PIN_OUTPUT);
+    }
+
+I2c_soft.c (src\drivers\network):152
+    pin_device_set_mode(self_p->scl_p, PIN_OUTPUT);
+
+    return (0);
+I2c_soft.c (src\drivers\network):189
+    pin_device_set_mode(self_p->scl_p, PIN_OUTPUT);
+
+    return (0);
+Main.c (examples\blink):41
+    pin_init(&led, &pin_led_dev, PIN_OUTPUT);
+    pin_write(&led, 1);
+
+Main.c (examples\nrf24l01\server):53
+    pin_init(&pin[0], &pin_d7_dev, PIN_OUTPUT);
+    pin_init(&pin[1], &pin_d8_dev, PIN_OUTPUT);
+    pin_init(&pin[2], &pin_d9_dev, PIN_OUTPUT);
+
+    pin_write(&pin[0], 0);
+Main.c (examples\platformio\blink\src):41
+    pin_init(&led, &pin_led_dev, PIN_OUTPUT);
+    
+    while (1) {
+Main.c (examples\socket_device):54
+    pin_init(&pin, &pin_device[6], PIN_OUTPUT);
+    pin_write(&pin, 0);
+
+Main.c (examples\spi\server):52
+    pin_init(&pin[0], &pin_d7_dev, PIN_OUTPUT);
+    pin_init(&pin[1], &pin_d8_dev, PIN_OUTPUT);
+    pin_init(&pin[2], &pin_d9_dev, PIN_OUTPUT);
+
+    while (1) {
+Main.c (tst\drivers\hardware\basic\adc):44
+    BTASSERT(pin_init(&pin, &pin_d2_dev, PIN_OUTPUT) == 0);
+    BTASSERT(pin_write(&pin, 1) == 0);
+
+Main.c (tst\drivers\hardware\basic\exti):46
+    pin_init(&pin, &pin_d4_dev, PIN_OUTPUT);
+    pin_write(&pin, 1);
+    
+Main.c (tst\...\pcint):46
+    pin_init(&pin, &pin_a8_dev, PIN_OUTPUT);
+
+    return (0);
+Main.c (tst\drivers\hardware\basic\pin):47
+    BTASSERT(pin_init(&pin, &pin_d9_dev, PIN_OUTPUT) == 0);
+
+    /* Default low. */
+Main.c (tst\drivers\hardware\basic\pin):69
+    BTASSERT(pin_init(&pin, &pin_d9_dev, PIN_OUTPUT) == 0);
+
+    /* Default low. */
+Main.c (tst\drivers\hardware\basic\pin):134
+    BTASSERT(pin_init(&testpin, &pin_d8_dev, PIN_OUTPUT) == 0);
+    BTASSERT(pin_init(&pin, &pin_d9_dev, PIN_INPUT) == 0);
+
+Main.c (tst\drivers\hardware\basic\pin):160
+    BTASSERT(pin_init(&testpin, &pin_d8_dev, PIN_OUTPUT) == 0);
+    BTASSERT(pin_write(&testpin, 0) == 0);
+    BTASSERT(pin_read(&pin) == 0);
+Main.c (tst\drivers\hardware\basic\pin):182
+        BTASSERT(pin_init(&testpin, &pin_d8_dev, PIN_OUTPUT) == 0);
+        BTASSERT(pin_write(&testpin, 0) == 0);
+        BTASSERT(pin_read(&pin) == 0);
+Main.c (tst\drivers\hardware\basic\pin):197
+    BTASSERT(pin_device_set_mode(&pin_d9_dev, PIN_OUTPUT) == 0);
+
+    /* Default low. */
+Main.c (tst\drivers\hardware\basic\pin):212
+    BTASSERT(pin_device_set_mode(&pin_d9_dev, PIN_OUTPUT) == 0);
+
+    /* Default low. */
+Main.c (tst\drivers\hardware\basic\pin):270
+    BTASSERT(pin_init(&testpin, &pin_d8_dev, PIN_OUTPUT) == 0);
+    BTASSERT(pin_device_set_mode(&pin_d9_dev, PIN_INPUT) == 0);
+
+Main.c (tst\drivers\hardware\basic\pin):297
+    BTASSERT(pin_init(&testpin, &pin_d8_dev, PIN_OUTPUT) == 0);
+    BTASSERT(pin_write(&testpin, 0) == 0);
+    BTASSERT(pin_device_read(&pin_d9_dev) == 0);
+Main.c (tst\drivers\hardware\basic\pin):318
+        BTASSERT(pin_init(&testpin, &pin_d8_dev, PIN_OUTPUT) == 0);
+        BTASSERT(pin_write(&testpin, 0) == 0);
+        BTASSERT(pin_device_read(&pin_d8_dev) == 0);
+Main.c (tst\...\hx711):75
+    BTASSERT(mode == PIN_OUTPUT);
+
+    harness_mock_read("pin_port_device_write_low(dev_p)",
+Main.c (tst\...\hx711):120
+    BTASSERT(mode == PIN_OUTPUT);
+
+    harness_mock_read("pin_port_device_write_low(dev_p)",
+Nrf24l01.c (src\drivers\network):179
+    pin_init(&self_p->ce, ce_p, PIN_OUTPUT);
+
+    return (0);
+Owi.c (src\drivers\network):45
+    pin_init(&self_p->pin, dev_p, PIN_OUTPUT);
+    pin_write(&self_p->pin, 1);
+    self_p->devices_p = devices_p;
+Owi.c (src\drivers\network):71
+        pin_set_mode(&self_p->pin, PIN_OUTPUT);
+    } while ((--attempts > 0) && (err != 0));
+
+Owi.c (src\drivers\network):182
+        pin_set_mode(&self_p->pin, PIN_OUTPUT);
+        pin_write(&self_p->pin, 1);
+
+Pin.c (src\drivers\basic):81
+        mode = PIN_OUTPUT;
+    } else if (strcmp(argv[2], "output_open_drain") == 0) {
+        mode = PIN_OUTPUT_OPEN_DRAIN;
+Pin.h (src\drivers\basic):39
+#define PIN_OUTPUT                                          0
+
+/**
+Pin.h (src\drivers\basic):92
+ * @param[in] mode Pin mode. One of the ``PIN_OUTPUT*`` and
+ *                 ``PIN_INPUT*`` defines.
+ *
+Pin.h (src\drivers\basic):146
+ * @param[in] mode Pin mode. One of the ``PIN_OUTPUT*`` and
+ *                 ``PIN_INPUT*`` defines.
+ *
+Pin.h (src\drivers\basic):160
+ * @param[in] mode Pin mode. One of the ``PIN_OUTPUT*`` and
+ *                 ``PIN_INPUT*`` defines.
+ *
+Pin_port.h (src\drivers\ports\avr):58
+    case PIN_OUTPUT:
+        *PORT(dev_p->sfr_p) &= ~dev_p->mask;
+        *DDR(dev_p->sfr_p) |= dev_p->mask;
+Pin_port.h (src\drivers\ports\esp):48
+        if (mode == PIN_OUTPUT) {
+            ESP8266_IOMUX->PIN[dev_p->iomux] =
+                (ESP8266_IOMUX_PIN_FUNC_GPIO(dev_p->iomux)
+Pin_port.h (src\drivers\ports\esp):64
+        if (mode == PIN_OUTPUT) {
+            ESP8266_RTC->GPIO.EN |= 1;
+        } else {
+Pin_port.h (src\drivers\ports\esp32):46
+    if (mode == PIN_OUTPUT) {
+        /* Do not use GPIO matrix for this pin. */
+        ESP32_GPIO->FUNC_OUT_SEL_CFG[dev_p->id] = 0x100;
+Pin_port.h (src\drivers\ports\nrf5):55
+    case PIN_OUTPUT:
+        dev_p->regs_p->PIN_CNF[index] = NRF5_GPIO_PIN_CNF_DIR_OUTPUT;
+        break;
+Pin_port.h (src\drivers\ports\sam):46
+    if (mode == PIN_OUTPUT) {
+        dev_p->pio_p->OER = dev_p->mask;
+    } else {
+Pin_port.h (src\drivers\ports\samd):46
+    if (mode == PIN_OUTPUT) {
+        dev_p->pio_p->OER = dev_p->mask;
+    } else {
+Pin_port.h (src\drivers\ports\spc5):46
+    if (mode == PIN_OUTPUT) {
+        SPC5_SIUL->PCR[dev_p->id] = SPC5_SIUL_PCR_OBE;
+    } else {
+Pin_port.h (src\drivers\ports\stm32f1):57
+    if (mode == PIN_OUTPUT) {
+        *cr_p = bits_insert_32(*cr_p, shift, 4, 0x1);
+    } else {
+Pin_port.h (src\drivers\ports\stm32f2):46
+    if (mode == PIN_OUTPUT) {
+        dev_p->regs_p->MODER =
+            bits_insert_32(dev_p->regs_p->MODER, 2 * dev_p->bit, 2, 0x1);
+Pwm_port.i (src\drivers\ports\avr):38
+    pin_init(&self_p->pin_drv, dev_p->pin_dev_p, PIN_OUTPUT);
+
+    /* Configure the timer mode to PWM. */
+Pwm_port.i (src\drivers\ports\avr):128
+    pin_init(&self_p->pin_drv, dev_p->pin_dev_p, PIN_OUTPUT);
+
+    switch (dev_p->index) {
+Pwm_soft.c (src\drivers\basic):175
+    pin_device_set_mode(self_p->pin_dev_p, PIN_OUTPUT);
+
+    if (self_p->duty_cycle == DUTY_CYCLE_MAX) {
+Spi_port.i (src\drivers\ports\avr):87
+        pin_init(&self_p->sck, dev_p->sck_p, PIN_OUTPUT);
+        pin_init(&self_p->mosi, dev_p->mosi_p, PIN_OUTPUT);
+        pin_init(&self_p->miso, dev_p->miso_p, PIN_INPUT);
+        pin_init(&self_p->ss, ss_pin_p, PIN_OUTPUT);
+        pin_write(&self_p->ss, 1);
+        /* The SS pin must be set as output and set to high in master
+Spi_port.i (src\drivers\ports\avr):94
+        pin_init(&self_p->hw_ss, dev_p->ss_p, PIN_OUTPUT);
+        pin_write(&self_p->hw_ss, 1);
+    } else {
+Spi_port.i (src\drivers\ports\avr):99
+        pin_init(&self_p->miso, dev_p->miso_p, PIN_OUTPUT);
+        pin_init(&self_p->ss, ss_pin_p, PIN_INPUT);
+    }
+Uart_soft.c (src\drivers\network):126
+    pin_init(&self_p->tx_pin, tx_dev_p, PIN_OUTPUT);
+    pin_init(&self_p->rx_pin, rx_dev_p, PIN_INPUT);
+
+Ws2812.c (src\drivers\displays):90
+        pin_device_set_mode(pins_pp[i], PIN_OUTPUT);
+        pin_device_write_low(pins_pp[i]);
+        self_p->mask |= (1 << pins_pp[i]->id);

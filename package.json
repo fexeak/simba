@@ -1,10 +1,7 @@
 {
-  "name":"framework-simba",
-  "description":"Simba Embedded Programming Platform",
-  "url":"https://github.com/eerimoq/simba",
-  "version":"15.0.3",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/eerimoq/simba.git"
-  }
+    "description": "GongYa Framework forck from simba framework",
+    "name": "framework-gongya",
+    "system": "*",
+    "url": "https://github.com/fexeak/gongya",
+    "version": "1.0.0"
 }

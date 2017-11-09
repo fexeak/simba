@@ -33,6 +33,7 @@ except ImportError:
     print("Failed to import prompt_toolkit.")
 
 import traceback
+import _thread
 from socket_device import SocketDevice
 
 try:
@@ -710,6 +711,7 @@ class SlipReaderThread(ReaderThread):
                 if len(packet) > 0:
                     print('warning: {}: client closed, discarding '
                           'packet'.format(packet), file=self.ostream)
+                _thread.interrupt_main()
                 raise
 
             # Print stored packet on timeout. Likely non-framed data,

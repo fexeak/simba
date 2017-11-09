@@ -38,8 +38,10 @@ from base64 import b64decode
 from SCons.Script import DefaultEnvironment
 from platformio.builder.tools.platformio import SRC_DEFAULT_FILTER
 
+
 # Map the PlatformIO board name to the Simba board name.
 BOARD_MAP = {
+    "fexeak_gongya": "gongya",
     "due": "arduino_due",
     "megaatmega2560": "arduino_mega",
     "nanoatmega328": "arduino_nano",
@@ -51,6 +53,7 @@ BOARD_MAP = {
 
 # Map the PlatformIO board name to the Simba board name.
 SUPPORTED_BOARDS = [
+    "gongya",
     "arduino_due",
     "arduino_mega",
     "arduino_nano",
@@ -284,7 +287,208 @@ BOARDS = {
             "src/science/science.c"
         ]
     }, 
-    "arduino_mega": {
+    "gongya": {
+        "board_desc": "GongYa Framework", 
+        "cdefs": [
+            "ARCH_AVR", 
+            "FAMILY_AVR", 
+            "MCU_ATMEGA8", 
+            "BOARD_ARDUINO_MEGA", 
+            "VERSION=master", 
+            "MBEDTLS_USER_CONFIG_FILE=\"\\\"mbedtls/user_config.h\\\"\"", 
+            "__DELAY_BACKWARD_COMPATIBLE__"
+        ], 
+        "cflags": [
+            "-mmcu=atmega8", 
+            "-O2", 
+            "-ffunction-sections", 
+            "-fdata-sections", 
+            "-fpack-struct", 
+            "-fshort-enums", 
+            "-c", 
+            "-Wall", 
+            "-funsigned-bitfields", 
+            "-std=gnu99", 
+            "-Wno-error=unused-variable", 
+            "-Wno-error=deprecated-declarations"
+        ], 
+        "cxxflags": [
+            "-mmcu=atmega8", 
+            "-O2", 
+            "-ffunction-sections", 
+            "-fdata-sections", 
+            "-fpack-struct", 
+            "-fshort-enums", 
+            "-c", 
+            "-Wall", 
+            "-funsigned-bitfields", 
+            "-std=c++11", 
+            "-Wno-error=unused-variable"
+        ], 
+        "inc": [
+            "build/arduino_mega/gen", 
+            "src", 
+            "src/boards/gongya", 
+            "src/mcus/atmega8", 
+            "src", 
+            "3pp/compat", 
+            "src/drivers/ports/avr", 
+            "3pp/lwip-1.4.1/src/include", 
+            "3pp/lwip-1.4.1/src/include/ipv4", 
+            "3pp/mbedtls/include", 
+            "src/kernel/ports/avr/gnu", 
+            "src/oam/ports/avr", 
+            "3pp/spiffs-0.3.5/src"
+        ], 
+        "ldflags": [
+            "-mmcu=atmega8", 
+            "-Wl,--cref", 
+            "-Wl,--defsym=__main_stack_end=0x802200", 
+            "-Wl,-Map=build/arduino_mega/default_configuration.map", 
+            "-Wl,--gc-sections"
+        ], 
+        "lib": [], 
+        "libpath": [], 
+        "linker_script": "", 
+        "mcu_desc": "Atmel atmega8 AVR @ 8MHz, 2k sram, 32k flash", 
+        "src": [
+             "src/boards/arduino_uno/board.c", 
+            "src/mcus/atmega8/mcu.c", 
+            "src/alloc/circular_heap.c", 
+            "src/alloc/heap.c", 
+            "src/collections/binary_tree.c", 
+            "src/collections/circular_buffer.c", 
+            "src/collections/hash_map.c", 
+            "src/debug/log.c", 
+            "src/debug/harness.c", 
+            "src/drivers/basic/adc.c", 
+            "src/drivers/basic/analog_input_pin.c", 
+            "src/drivers/basic/analog_output_pin.c", 
+            "src/drivers/basic/chipid.c", 
+            "src/drivers/basic/dac.c", 
+            "src/drivers/basic/exti.c", 
+            "src/drivers/basic/pcint.c", 
+            "src/drivers/basic/pin.c", 
+            "src/drivers/basic/pwm.c", 
+            "src/drivers/basic/pwm_soft.c", 
+            "src/drivers/basic/random.c", 
+            "src/drivers/basic/watchdog.c", 
+            "src/drivers/displays/hd44780.c", 
+            "src/drivers/displays/led_7seg_ht16k33.c", 
+            "src/drivers/displays/ws2812.c", 
+            "src/drivers/network/can.c", 
+            "src/drivers/network/esp_wifi.c", 
+            "src/drivers/network/esp_wifi/station.c", 
+            "src/drivers/network/esp_wifi/softap.c", 
+            "src/drivers/network/i2c.c", 
+            "src/drivers/network/i2c_soft.c", 
+            "src/drivers/network/mcp2515.c", 
+            "src/drivers/network/nrf24l01.c", 
+            "src/drivers/network/owi.c", 
+            "src/drivers/network/spi.c", 
+            "src/drivers/network/uart.c", 
+            "src/drivers/network/uart_soft.c", 
+            "src/drivers/network/usb.c", 
+            "src/drivers/network/usb_device.c", 
+            "src/drivers/network/usb/device/descriptors.c", 
+            "src/drivers/network/usb/device/class/cdc.c", 
+            "src/drivers/network/usb_host.c", 
+            "src/drivers/network/usb/host/class/hid.c", 
+            "src/drivers/network/usb/host/class/mass_storage.c", 
+            "src/drivers/network/xbee.c", 
+            "src/drivers/network/xbee_client.c", 
+            "src/drivers/sensors/bmp280.c", 
+            "src/drivers/sensors/dht.c", 
+            "src/drivers/sensors/ds18b20.c", 
+            "src/drivers/sensors/hx711.c", 
+            "src/drivers/sensors/sht3xd.c", 
+            "src/drivers/storage/eeprom_i2c.c", 
+            "src/drivers/storage/eeprom_soft.c", 
+            "src/drivers/storage/flash.c", 
+            "src/drivers/storage/sd.c", 
+            "src/drivers/various/ds3231.c", 
+            "src/drivers/various/gnss.c", 
+            "src/encode/base64.c", 
+            "src/encode/json.c", 
+            "src/encode/nmea.c", 
+            "src/hash/crc.c", 
+            "src/hash/sha1.c", 
+            "3pp/lwip-1.4.1/src/core/stats.c", 
+            "3pp/lwip-1.4.1/src/core/tcp_out.c", 
+            "3pp/lwip-1.4.1/src/core/udp.c", 
+            "3pp/lwip-1.4.1/src/core/timers.c", 
+            "3pp/lwip-1.4.1/src/core/netif.c", 
+            "3pp/lwip-1.4.1/src/core/def.c", 
+            "3pp/lwip-1.4.1/src/core/raw.c", 
+            "3pp/lwip-1.4.1/src/core/dns.c", 
+            "3pp/lwip-1.4.1/src/core/tcp_in.c", 
+            "3pp/lwip-1.4.1/src/core/memp.c", 
+            "3pp/lwip-1.4.1/src/core/pbuf.c", 
+            "3pp/lwip-1.4.1/src/core/tcp.c", 
+            "3pp/lwip-1.4.1/src/core/init.c", 
+            "3pp/lwip-1.4.1/src/core/dhcp.c", 
+            "3pp/lwip-1.4.1/src/core/ipv4/ip_frag.c", 
+            "3pp/lwip-1.4.1/src/core/ipv4/ip.c", 
+            "3pp/lwip-1.4.1/src/core/ipv4/ip_addr.c", 
+            "3pp/lwip-1.4.1/src/core/ipv4/icmp.c", 
+            "3pp/lwip-1.4.1/src/core/ipv4/igmp.c", 
+            "3pp/lwip-1.4.1/src/core/ipv4/inet.c", 
+            "3pp/lwip-1.4.1/src/core/ipv4/inet_chksum.c", 
+            "3pp/lwip-1.4.1/src/core/mem.c", 
+            "3pp/lwip-1.4.1/src/netif/etharp.c", 
+            "3pp/lwip-1.4.1/src/netif/ethernetif.c", 
+            "3pp/lwip-1.4.1/src/api/tcpip.c", 
+            "3pp/compat/arch/sys_arch.c", 
+            "src/inet/http_server.c", 
+            "src/inet/http_websocket_server.c", 
+            "src/inet/http_websocket_client.c", 
+            "src/inet/inet.c", 
+            "src/inet/isotp.c", 
+            "src/inet/mqtt_client.c", 
+            "src/inet/tftp_server.c", 
+            "src/inet/network_interface.c", 
+            "src/inet/network_interface/slip.c", 
+            "src/inet/network_interface/wifi.c", 
+            "src/inet/slip.c", 
+            "src/inet/socket.c", 
+            "src/inet/ping.c", 
+            "src/kernel/errno.c", 
+            "src/kernel/sys.c", 
+            "src/kernel/thrd.c", 
+            "src/kernel/time.c", 
+            "src/kernel/timer.c", 
+            "src/multimedia/midi.c", 
+            "src/oam/console.c", 
+            "src/oam/nvm.c", 
+            "src/oam/service.c", 
+            "src/oam/settings.c", 
+            "src/oam/shell.c", 
+            "src/oam/soam.c", 
+            "src/filesystems/fat16.c", 
+            "src/filesystems/fs.c", 
+            "src/filesystems/spiffs.c", 
+            "3pp/spiffs-0.3.5/src/spiffs_nucleus.c", 
+            "3pp/spiffs-0.3.5/src/spiffs_gc.c", 
+            "3pp/spiffs-0.3.5/src/spiffs_hydrogen.c", 
+            "3pp/spiffs-0.3.5/src/spiffs_cache.c", 
+            "3pp/spiffs-0.3.5/src/spiffs_check.c", 
+            "src/sync/bus.c", 
+            "src/sync/chan.c", 
+            "src/sync/cond.c", 
+            "src/sync/event.c", 
+            "src/sync/mutex.c", 
+            "src/sync/queue.c", 
+            "src/sync/rwlock.c", 
+            "src/sync/sem.c", 
+            "src/text/configfile.c", 
+            "src/text/emacs.c", 
+            "src/text/std.c", 
+            "src/text/re.c", 
+            "src/science/math.c", 
+            "src/science/science.c"
+        ]
+    }, 
+     "arduino_mega": {
         "board_desc": "Arduino Mega", 
         "cdefs": [
             "ARCH_AVR", 
@@ -5064,7 +5268,7 @@ def add_include_paths(env, paths):
 
     platform = env.PioPlatform()
     env.Append(CPPPATH=["$PROJECTSRC_DIR"])
-    framework_dir = platform.get_package_dir("framework-simba")
+    framework_dir = platform.get_package_dir("framework-gongya")
     assert os.path.isdir(framework_dir)
 
     for path in paths:
@@ -5212,7 +5416,7 @@ def setup_board_esp12e(env):
 
     """
 
-    setup_mcu_esp(env, "simba.flash.4m.ld", "6")
+    setup_mcu_esp(env, "gongya.flash.4m.ld", "6")
 
 
 def setup_board_esp01(env):
@@ -5220,7 +5424,7 @@ def setup_board_esp01(env):
 
     """
 
-    setup_mcu_esp(env, "simba.flash.1m.ld", "2")
+    setup_mcu_esp(env, "gongya.flash.1m.ld", "2")
 
 
 def setup_board_nodemcu(env):
@@ -5228,7 +5432,7 @@ def setup_board_nodemcu(env):
 
     """
 
-    setup_mcu_esp(env, "simba.flash.4m.ld", "6")
+    setup_mcu_esp(env, "gongya.flash.4m.ld", "6")
 
 
 def setup_board_huzzah(env):
@@ -5236,7 +5440,7 @@ def setup_board_huzzah(env):
 
     """
 
-    setup_mcu_esp(env, "simba.flash.4m.ld", "6")
+    setup_mcu_esp(env, "gongya.flash.4m.ld", "6")
 
 
 def setup_board_wemos_d1_mini(env):
@@ -5244,7 +5448,7 @@ def setup_board_wemos_d1_mini(env):
 
     """
 
-    setup_mcu_esp(env, "simba.flash.4m.ld", "6")
+    setup_mcu_esp(env, "gongya.flash.4m.ld", "6")
 
 
 def setup_board_nano32(env):
@@ -5297,7 +5501,7 @@ env = DefaultEnvironment()
 set_default_values(env)
 
 # Rename the name of boards that have different name in PlatformIO and
-# Simba.
+# gongya.
 if env["BOARD"] in BOARD_MAP:
     board = BOARD_MAP[env["BOARD"]]
 else:
@@ -5369,10 +5573,10 @@ elif 'ARCH_AVR' in BOARDS[board]['cdefs']:
     env.Replace(CCFLAGS=ccflags)
 
 # Generated files.
-SIMBA_GEN_C = "$BUILD_DIR/SimbaFramework/simba_gen.c"
+SIMBA_GEN_C = "$BUILD_DIR/GongYaFramework/simba_gen.c"
 
 # Create a list of all sources.
-variant_dir = join("$BUILD_DIR", "SimbaFramework")
+variant_dir = join("$BUILD_DIR", "GongYaFramework")
 src_dir = join("$PLATFORMFW_DIR")
 
 source_files = []
@@ -5382,7 +5586,7 @@ for src in env.LookupSources(variant_dir, src_dir, True, src_filter):
 
 # Action string to generate simba_gen.c.
 gen_command_action = ('"$PYTHONEXE" "$PLATFORMFW_DIR/bin/simbagen.py" '
-                      '--output-directory "$BUILD_DIR/SimbaFramework" '
+                      '--output-directory "$BUILD_DIR/GongYaFramework" '
                       'source '
                       '--name "$NAME" '
                       '--version "$VERSION" '
@@ -5407,6 +5611,6 @@ if settings_ini_encoded is not None:
     env.Depends(gen_command, settings_ini)
 
 source_files.append(SIMBA_GEN_C)
-lib = env.Library(target=join("$BUILD_DIR", "SimbaFramework"), source=source_files)
+lib = env.Library(target=join("$BUILD_DIR", "GongYaFramework"), source=source_files)
 
 env.Append(LIBS=[lib])

@@ -85,6 +85,7 @@ static void rx_isr(int index)
 #if CONFIG_UART_FS_COUNTERS == 1
         fs_counter_increment(&rx_errors, 1);
 #endif
+
     }
 }
 
